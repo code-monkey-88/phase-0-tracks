@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>festival organiser</title>
+  </head>
+  <body>
+    <form name="adventure" action="success.html" method="post">
+      <fieldset>
+        <div>
+          <label>select festival:</label>
+          <select name="festival">
+            <option value="burning man">Burning Man</option>
+            <option value="coachella">Coachella</option>
+            <option value="melt">Melt</option>
+          </select>
+        </div>
+        <div>
+          <h1>Alternative festival preferences:</h1>
+          <textarea name="textarea" rows="10" cols="50">write something here</textarea>
+        </div>
+        <div>
+          <label>Choose a date:</label>
+          <input type="date" name="date">
+        </div>
+        <div>
+          <label>Email:</label>
+          <input type="email" name="email">
+        </div>
+        <div>
+          <input type="checkbox" name="cb-agree" value="agree">
+          "I will arrange my own transportation"
+        </div>
+      </fieldset>
+      <button type="submit">Submit for booking confirmation</button>
+    </form>
+  </body>
+</html>
