@@ -5,20 +5,42 @@ blockquote {
 }
 
 body {
-  width: 960px;
+  max-width: 960px;
+  min-width: 200px
 }
 
 #external-links {
-width: 200px;
+width: 20%;
 display: inline-block;
 vertical-align: top;
 }
 
-main{
-  width: 756px;
+@media screen and (max-width: 500px) {
+  body {
+    background-color: hotpink;
+  }
+
+  @media screen and (max-width: 500px) {
+    h1 {
+      font-size: 75%;
+    }
+
+    @media screen and (max-width: 500px) {
+      p {font-size: 125%}
+      }
+}
+
+main {
+  width: 80%;
   display: inline-block;
   vertical-align: middle;
+  padding-right: 5%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 5%;
+  min-width:30%
 }
+
 
 cite {
   display: block;
