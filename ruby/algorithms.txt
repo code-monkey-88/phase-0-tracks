@@ -1,0 +1,16 @@
+Release 0 - Equip Your New Robot
+
+#ask user what floor they would like to reach
+#store user input into a variable
+ -compare this variable to list of searchable floors
+ -if not match is found continue to request floor
+#when floor match is found push elevator button
+
+Release 1 - Find a Real-Life Algorithm (expenses)
+
+#to budget for the month you sort expenses on your bank statement from high to low
+#next you sum the total and divide this by your monthly salary
+#each month you compare the percentage of your salary being saved
+#you break down your top 10 expenses and label them with variable names i.e. rent, mortgage
+#you group expenses into 3 main categories i.e. rent, education, entertainment
+#you track MoM how much you spend in each category.
