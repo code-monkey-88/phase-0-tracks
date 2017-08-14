@@ -21,6 +21,18 @@
   font-family: monospace;
 }
 
+#intro {
+  clear: both;
+  background: #A2A2A2;
+  display:inline;
+}
+
+#outro {
+  clear: both;
+  background: #A2A2A2;
+  display:inline;
+}
+
 body {
     background-image: url("Octocat.png");
     background-color: #cccccc;
