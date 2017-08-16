@@ -1,3 +1,19 @@
+#adding an interface:
+#apply conditional logic to determine if user would like to encrypy or decrypt
+#ask for user input
+#somehow interpolate results to call appropriate method
+
+puts "would you like to decrypt or encrypt a password?"
+user_input=gets.chomp
+
+  if user_input=="decrypt"
+    puts "what would you like to decrypt?"
+    decrypt_input=gets.chomp
+  elsif user_input=="encrypt"
+    puts "what would you like to encrypt?"
+    encrypt_input=gets.chomp
+  end
+
 #encrypt alogorithm:
 #build a counter
 #print password[index].next within loop
@@ -7,12 +23,18 @@
 def encrypt(string)
   index=0
     while index < string.length
-      p string[index].next
+      letter=string[index].next
+        if letter=="aa"
+          #p "a"#
+        else
+          #p letter#
+        end
       index +=1
     end
   end
 encrypt("abc")
 encrypt("zed")
+encrypt("#{encrypt_input}")
 
 #decrypt algorithm:
 #build a counter
@@ -24,9 +46,10 @@ def decrypt(string)
   index=0
     while index < string.length
       letter_position=("abcdefghijklmnopqrstuvwxyz".index(string[index]))-1
-      p "abcdefghijklmnopqrstuvwxyz"[letter_position]
+      #p "abcdefghijklmnopqrstuvwxyz"[letter_position]#
       index +=1
     end
   end
 decrypt("bcd")
 decrypt("afe")
+decrypt("#{decrypt_input}")
