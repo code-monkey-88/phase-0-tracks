@@ -25,15 +25,15 @@ def encrypt(string)
     while index < string.length
       letter=string[index].next
         if letter=="aa"
-          #p "a"#
+          p "a"
         else
-          #p letter#
+          p letter
         end
       index +=1
     end
   end
-encrypt("abc")
-encrypt("zed")
+#encrypt("abc")
+#encrypt("zed")
 encrypt("#{encrypt_input}")
 
 #decrypt algorithm:
@@ -46,10 +46,11 @@ def decrypt(string)
   index=0
     while index < string.length
       letter_position=("abcdefghijklmnopqrstuvwxyz".index(string[index]))-1
-      #p "abcdefghijklmnopqrstuvwxyz"[letter_position]#
+      p "abcdefghijklmnopqrstuvwxyz"[letter_position]
       index +=1
     end
   end
-decrypt("bcd")
-decrypt("afe")
+#decrypt("bcd")
+#decrypt("afe")
+#decrypt(encrypt("swordfish"))# --> create new variable to store result
 decrypt("#{decrypt_input}")
