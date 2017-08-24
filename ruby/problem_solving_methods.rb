@@ -1,66 +1,52 @@
+# def search_array(arr, value)
+#     here = false
+#     count = 0
+#     while count < arr.length
+#         if arr[count] == value
+#             here = true
+#             puts count
+#         end
+#         count += 1
+#     end
+#     if here == false
+#         puts "nil"
+#     end
+# end
+#
+#
+# arr = [10, 11, 12, 13]
+# search_array(arr, 9)
+#
+# #add two values together using their index
+# #find a way to increment the index
+#
+#
+# def fib(count)
+#   array = [0,1,1]
+#     until array.length == count
+#         result = array [-1] + array[-2]
+#         p array << result
+#     end
+# end
+#
+# fib (6)
+
+
 def search_array(arr, value)
-    here = false
-    count = 0
-    while count < arr.length
-        if arr[count] == value
-            here = true
-            puts count
-        end
-        count += 1
-    end
-    if here == false
-        puts "nil"
-    end
-end
-
-
-arr = [10, 11, 12, 13]
-search_array(arr, 9)
-
-#add two values together using their index
-#find a way to increment the index
-
-
-def fib(count)
-  array = [0,1,1]
-    until array.length == count
-        result = array [-1] + array[-2]
-        p array << result
-    end
-end
-
-fib (6)
-
-=begin
-def search_array2(arr, value)
     arr.each do |i|
         if i == value
-            p
+            puts "#{value} is present within array"
+        else
+            value = "#{value} is not present within array"
         end
+        return value
     end
 end
-
-
-
-def search_array(arr, value)
-    here = false
-    count = 0
-    while count < arr.length
-        if arr[count] == value
-            here = true
-            puts count
-        end
-        count += 1
-    end
-    if here == false
-        puts "nil"
-    end
-end
-
 
 arr = [10, 11, 12, 13]
 search_array(arr, 9)
-=end
+search_array(arr, 10)
+
 
     # while loop. iterate though all values
     #loop through each value
