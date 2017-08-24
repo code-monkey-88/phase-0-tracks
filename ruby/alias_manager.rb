@@ -22,21 +22,22 @@
               elsif letter == "z"
                 letter = "b"
               else
-                letter = letter.next
-                #consonant_index = "bcdfghjklmnpqrstvwxyz".index(letter)+1
+                letter.tr("bcdfghjklmnpqrstvwxyz","cdfghjklmnpqrstvwxyzb")
+                #consonant_index = "bcdfghjklmnpqrstvwxyz".index(letter.to)+1
                 #letter = "bcdfghjklmnpqrstvwxyz"[consonant_index]
                 # :(
             end
           }.join('')
 
-          return spy_name
+          return spy_name # is this necessary? spy_name exists above?
       end
 
 #loop and store values
 
-list_of_spy_names = [] #to store the names
+
 puts "What is your real name?"
 real_name = gets.chomp
+list_of_spy_names = [] #to store the names
 
 until real_name == "quit"
   spy_name = name_switch(real_name)

@@ -7,15 +7,31 @@ zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
 # printing each item in the array separated by an asterisk
 # ----
 
+zombie_apocalypse_supplies.each {|item| p "item *"}
+
 # 2. Create a method to see if a particular item (string) is in the
 # zombie_apocalypse_supplies using #each.
 # For instance: are boots in your list of supplies?
 # ----
+#  def search_inventory(arr, items)
+#   arr.each do |item|
+#   p item.include?(items)
+#   end
+# end
+#
+# search_inventory(zombie_apocalypse_supplies,"hatchet")
+
 
 # 3. You can't carry too many things, you've only got room in your pack for 5.
 # Remove items in your zombie_apocalypse_supplies in any way you'd like,
 # leaving only 5, using #each.
 # ----
+
+
+# zombie_apocalypse_supplies.each {|item| item.index > 5 }
+# zombie_apocalypse_supplies
+
+
 
 # 4. You found another survivor! This means you can combine your supplies.
 # Create a new combined supplies list out of your zombie_apocalypse_supplies
@@ -25,6 +41,10 @@ zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars",
 other_survivor_supplies = [ "warm clothes", "rations", "compass", "camp stove",
                             "solar battery", "flashlight"]
 # ----
+
+combined_supplies = other_survivor_supplies + zombie_apocalypse_supplies
+p combined_supplies.uniq!
+
 
 # Hash Drills
 
@@ -42,14 +62,33 @@ extinct_animals = {
 # with a dash in between the key and value, and an asterisk between each pair.
 # ----
 
+#extinct_animals.each {|key, value| p key, "-" , value, "*"}
+
 # 2. Keep only animals in extinct_animals if they were extinct before
 # the year 2000, using #each.
 # ----
+
+#extinct_animals.delete_if {|key, value| value >= 2000}
+#p extinct_animals
+
+=begin
+extinct_animals.each do |key, value|
+  if value >= 2000
+    value.clear
+  end
+end
+p extinct_animals
+=end
 
 # 3. Our calculations were completely off, turns out all of those animals went
 # extinct 3 years before the date provided. Update the values in extinct_animals
 # using #each, so they accurately reflect what year the animal went extinct.
 # ----
+
+extinct_animals.each do |key, value|
+  value = value-3
+end
+p extinct_animals
 
 # 4. You've heard that the following animals might be extinct, but you're not sure.
 # Build a method  using #each that checks if an animal is in the hash and returns true/false.
@@ -60,6 +99,9 @@ extinct_animals = {
 # "Saiga Antelope"
 # Driver code example: is_extinct?(extinct_animals, "Andean Cat")
 # ----
+
+
+
 
 # 5. We just found out that the Passenger Pigeon is actually not extinct!
 # Remove them from extinct_animals and return the key value pair as a two item array.
