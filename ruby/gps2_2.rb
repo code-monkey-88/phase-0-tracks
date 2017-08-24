@@ -8,9 +8,9 @@
 
 puts "welcome to the grocery list generator"
       grocery_list = {}
-puts "please enter items to be added to grocery list seperated by spaces"
+puts "please enter items to be added to grocery list seperated by commas" #Refactor to include quantity?
       items = gets.chomp
-      items_array = items.split(' ')
+      items_array = items.split(',')
 
       def grocery_list_generator(hash, array)
         array.each do |item|
@@ -37,9 +37,9 @@ puts "would you like to add additional items to your list (y/n)?"
     additional_items_wanted = gets.chomp
     if additional_items_wanted == "y"
 
-      puts "please enter additional items to be added to grocery list seperated by spaces"
+      puts "please enter additional items to be added to grocery list seperated by commas"
             new_items = gets.chomp
-            new_items_array = new_items.split(' ')
+            new_items_array = new_items.split(',')
 
                   def grocery_list_adder(hash, array)
                     array.each do |item|
@@ -74,9 +74,9 @@ puts "would you like to remove items to your list (y/n)?"
   remove_items = gets.chomp
   if remove_items == "y"
 
-      puts "please enter items to be deleted seperated by spaces"
+      puts "please enter items to be deleted seperated by commas"
             delete_items = gets.chomp
-            delete_items_array = delete_items.split(' ')
+            delete_items_array = delete_items.split(',')
 
                   def grocery_list_delete(hash, array)
                     array.each do |item|
@@ -85,8 +85,8 @@ puts "would you like to remove items to your list (y/n)?"
                     return hash
                   end
 
-      grocery_list_delete(updated_grocery_list, delete_items_array)
-      deleted_grocery_list = grocery_list_delete(updated_grocery_list, delete_items_array)
+      grocery_list_delete((updated_grocery_list || initial_grocery_list), delete_items_array)
+      deleted_grocery_list = grocery_list_delete((updated_grocery_list || initial_grocery_list), delete_items_array)
 
       puts "please see your updated list below after removing items "
       p deleted_grocery_list
@@ -106,12 +106,15 @@ puts "would you like to remove items to your list (y/n)?"
   # print hash - debugging
 # output: [final hash]
 
+quantity_update = false
+until quantity_update == "n"
+
 puts "would you like to update the quantity of items in your list (y/n)?"
   quantity_update = gets.chomp
   if quantity_update == "y"
 
-  #LOOP
-      puts "please enter the name of the item who's quantity you wish to update?"
+  #Refactor LOOP
+      puts "please enter the name of the item who's quantity you wish to update or type done when finished?"
             item_name = gets.chomp
       puts "please enter new quantity:"
             quantity = gets.chomp
@@ -133,7 +136,7 @@ puts "would you like to update the quantity of items in your list (y/n)?"
       puts "here is your previous shopping list:"
       p (deleted_grocery_list || updated_grocery_list || initial_grocery_list)
   end
-
+end
 # Method to print a list and make it look pretty
 # input: [final hash]
 # steps:
@@ -145,3 +148,22 @@ puts "would you like to update the quantity of items in your list (y/n)?"
 (deleted_grocery_list || updated_grocery_list || initial_grocery_list).each do |item, quantity|
   puts "your shopping list consists of #{quantity} #{item}"
 end
+
+# Reflection
+# What did you learn about pseudocode from working on this challenge?
+#helped me break down problem into manageable chunks for bug checking
+
+# What are the tradeoffs of using arrays and hashes for this challenge?
+# arrays are quicker to manipulate however it is harder to present your data in pairs.
+
+# What does a method return?
+# takes an argument as input and returns a value as output
+
+# What kind of things can you pass into methods as arguments?
+# strings, arrays, hashes, floats, integers
+
+# How can you pass information between methods?
+# nest method call for one method into another method call or store output into a variable and call variable in next method to minimise confusion.
+
+# What concepts were solidified in this challenge, and what concepts are still confusing?
+# control input/output between methods was solidified, however still confused about how I can implement DRYness here
