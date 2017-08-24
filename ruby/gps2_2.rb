@@ -92,7 +92,7 @@ puts "would you like to remove items to your list (y/n)?"
       p deleted_grocery_list
     else
       puts "here is your previous shopping list:"
-      p initial_grocery_list
+      p (updated_grocery_list || initial_grocery_list)
   end
 
 # Method to update the quantity of an item
@@ -125,10 +125,10 @@ puts "would you like to update the quantity of items in your list (y/n)?"
                   end
 
       grocery_list_final((deleted_grocery_list || updated_grocery_list || initial_grocery_list), item_name, quantity)
-      final_grocery_list = grocery_list_delete(updated_grocery_list, delete_items_array)
+      final_grocery_list = grocery_list_final((deleted_grocery_list || updated_grocery_list || initial_grocery_list), item_name, quantity)
 
       puts "please see your updated list below after updating quantities "
-      p deleted_grocery_list
+      p final_grocery_list
     else
       puts "here is your previous shopping list:"
       p (deleted_grocery_list || updated_grocery_list || initial_grocery_list)
