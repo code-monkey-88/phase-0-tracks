@@ -141,3 +141,7 @@ puts "would you like to update the quantity of items in your list (y/n)?"
   # iterate through the hash to print item and quantity on separate lines
   # method that takes a hash or each.do
 # output: list of individual items and their quantities line-by-line
+
+(deleted_grocery_list || updated_grocery_list || initial_grocery_list).each do |item, quantity|
+  puts "your shopping list consists of #{quantity} #{item}"
+end
