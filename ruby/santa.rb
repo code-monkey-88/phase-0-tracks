@@ -1,11 +1,13 @@
 class Santa
+  attr_reader :gender
+  attr_accessor :age, :ethnicity
 
   def initialize(gender, ethnicity)
     puts "Initializing Santa instance ..."
     @gender = gender
     @ethnicity = ethnicity
     @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
-    @age = 0
+    @age = rand(140)
   end
 
 #age Santa by 1 year
@@ -21,27 +23,6 @@ class Santa
     p new_ranking
   end
 
-  #getter-methods
-
-  def age
-    @age
-  end
-
-  def ethnicity
-    @ethnicity
-  end
-
-  #setter-methods
-
-  def age=(new_age)
-    @age = new_age
-  end
-
-  def ethnicity=(new_ethnicity)
-    @ethnicity = new_ethnicity
-  end
-
-
   def eat_milk_and_cookies(cookie_type)
     puts "That was a good #{cookie_type}!"
     cookie_type
@@ -54,7 +35,28 @@ class Santa
   def about
     puts "gender: #{@gender}"
     puts "ethnicity: #{@ethnicity}"
+    puts "age: #{@age}"
   end
+
+  # #getter-methods
+  #
+  # def age
+  #   @age
+  # end
+  #
+  # def ethnicity
+  #   @ethnicity
+  # end
+
+  # #setter-methods
+  #
+  # def age=(new_age)
+  #   @age = new_age
+  # end
+  #
+  # def ethnicity=(new_ethnicity)
+  #   @ethnicity = new_ethnicity
+  # end
 
 end
 
@@ -62,10 +64,10 @@ end
 # first_santa.eat_milk_and_cookies('snickerdoodle')
 # first_santa.speak
 
-santas = []
-santas << Santa.new("transgender", "arab")
-santas << Santa.new("female", "white")
-santas << Santa.new("male", "black")
+# santas = []
+# santas << Santa.new("transgender", "arab")
+# santas << Santa.new("female", "white")
+# santas << Santa.new("male", "black")
 
 
 birthday_boy = Santa.new("bigender", "asian")
@@ -73,8 +75,16 @@ birthday_boy.celebrate_birthday
 birthday_boy.get_mad_at("Vixen")
 
 birthday_boy.about
-
 birthday_boy.age = 5
-birthday_boy.gender = "male"
+birthday_boy.ethnicity = "blasian"
+birthday_boy.about
 
-birthday_boy.about 
+#release 4
+santas = []
+example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+example_genders.length.times do |i|
+santas << Santa.new(example_genders.sample, example_ethnicities.sample)
+  santas.each do |santa| santa.about
+  end
+end
