@@ -18,15 +18,16 @@ class VirusPredictor
   end
 
   #this method simply calls two other methods at the same time.
+  #release 5 - refactored by removing instance variable arguments across all 3 methods to make DRY.
   def virus_effects
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+    predicted_deaths
+    speed_of_spread
   end
 
   private
 
   #this method calculates the number of deaths and rounds down to a whole number.
-  def predicted_deaths(population_density, population, state)
+  def predicted_deaths
     # predicted deaths is solely based on population density
     if @population_density >= 200
       number_of_deaths = (@population * 0.4).floor
@@ -45,7 +46,7 @@ class VirusPredictor
   end
 
   #this method calculates how long it will take for the virus to spread based on population density.
-  def speed_of_spread(population_density, state) #in months
+  def speed_of_spread #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
     speed = 0.0
@@ -92,7 +93,10 @@ end
   STATE_DATA.each do |state, population_values|
     state = VirusPredictor.new(state, STATE_DATA[state][:population_density], STATE_DATA[state][:population])
     state.virus_effects
-  end 
+  end
+
+
+
 #=======================================================================
 # Reflection Section
 
@@ -104,3 +108,8 @@ end
   #this is a hash stored within a hash
   #syntax used are both equal "hash-rocket" & "symbol" (=> & :). Difference is symbols are more efficient.
   #Kind of variable is hash,string,symbol and scope is global.
+
+# Release 6:
+  #it is a method that can only be called in the context of the current object. A way to prevent side-effects in your code by limiting the scope
+  # if you change location of private you can no longer call virus_effects uness you call it within another class method.
+  # following error received: my_solution.rb:96:in `block in <main>': private method `virus_effects' called for #<VirusPredictor:0x007f94fb86f938> (NoMethodError)
