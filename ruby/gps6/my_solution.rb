@@ -17,6 +17,7 @@ class VirusPredictor
     @population_density = population_density
   end
 
+  #this method simply calls two other methods at the same time.
   def virus_effects
     predicted_deaths(@population_density, @population, @state)
     speed_of_spread(@population_density, @state)
@@ -24,6 +25,7 @@ class VirusPredictor
 
   private
 
+  #this method calculates the number of deaths and rounds down to a whole number.
   def predicted_deaths(population_density, population, state)
     # predicted deaths is solely based on population density
     if @population_density >= 200
@@ -42,6 +44,7 @@ class VirusPredictor
 
   end
 
+  #this method calculates how long it will take for the virus to spread based on population density.
   def speed_of_spread(population_density, state) #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
@@ -71,19 +74,25 @@ end
  # initialize VirusPredictor for each state
 
 
-alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
-alabama.virus_effects
+# alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
+# alabama.virus_effects
+#
+# jersey = VirusPredictor.new("New Jersey", STATE_DATA["New Jersey"][:population_density], STATE_DATA["New Jersey"][:population])
+# jersey.virus_effects
+#
+# california = VirusPredictor.new("California", STATE_DATA["California"][:population_density], STATE_DATA["California"][:population])
+# california.virus_effects
+#
+# alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
+# alaska.virus_effects
 
-jersey = VirusPredictor.new("New Jersey", STATE_DATA["New Jersey"][:population_density], STATE_DATA["New Jersey"][:population])
-jersey.virus_effects
+#Release 4 - Create a report for all 50 states in a DRY way. Does this belong inside the class or outside of it? Why?
+  # belongs outside of the class due to the scope of the class accepting arguments to store in instance variables.
 
-california = VirusPredictor.new("California", STATE_DATA["California"][:population_density], STATE_DATA["California"][:population])
-california.virus_effects
-
-alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
-alaska.virus_effects
-
-
+  STATE_DATA.each do |state, population_values|
+    state = VirusPredictor.new(state, STATE_DATA[state][:population_density], STATE_DATA[state][:population])
+    state.virus_effects
+  end 
 #=======================================================================
 # Reflection Section
 
