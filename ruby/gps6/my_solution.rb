@@ -1,6 +1,6 @@
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
+# I worked on this challenge [by myself].
 # We spent [#] hours on this challenge.
 
 # EXPLANATION OF require_relative
@@ -10,6 +10,7 @@ require_relative 'state_data'
 
 class VirusPredictor
 
+  #this method initialize the instance of the class and imports state data to be stored in instance variables.
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
     @population = population
@@ -85,3 +86,12 @@ alaska.virus_effects
 
 #=======================================================================
 # Reflection Section
+
+# Release 1:
+  #using require is usually to access functionality that has been previously installed.
+  #require_relative on the other hand is for loading data/files within your project code. Similar to linking sheets in excel.
+
+# Release 2:
+  #this is a hash stored within a hash
+  #syntax used are both equal "hash-rocket" & "symbol" (=> & :). Difference is symbols are more efficient.
+  #Kind of variable is hash,string,symbol and scope is global.
