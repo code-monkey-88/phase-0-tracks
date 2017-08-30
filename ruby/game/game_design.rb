@@ -1,10 +1,10 @@
 #Word Guessing Game
+#Enter a word and let your partner guess the letters
 
 class GuessingGame
-  # add attribute that allows program to write/read initial_word
-  # add attribute that allows program to read guess_count
-  attr_accessor :guess_count
-  attr_reader :total_guesses_allowed, :initial_word, :guess_array, :letter_array
+  # add attribute that allows program to read initial_word
+  # add attribute that allows program to read/write guess_count
+  attr_accessor :guess_count, :guess_array, :total_guesses_allowed, :initial_word, :letter_array
 
   # Method to initialize class
   # input: initial word
@@ -17,7 +17,7 @@ class GuessingGame
   def initialize(first_word, hint)
     @initial_word = first_word
     @total_guesses_allowed = first_word.length
-    @letter_array = first_word.split('')
+    @initial_word_array = first_word.split('')
     @guess_count = 0
     @guess_array = []
     puts "lets start the word guessing game, your first hint can be found below:"
@@ -33,16 +33,14 @@ class GuessingGame
 
   def check_letter(letter)
     @guess_count += 1
-    @letter_array.each do |l|
+    @initial_word_array.each do |l|
         if l == letter
           @guess_array << letter
           puts "you have guessed a correct letter. see below"
           puts "#{@guess_array}"
-        else
-          puts "nope, wrong letter"
         end
-          return @guess_array
       end
+      return @guess_array
     end
 
   # Method to congratule/taunt user based on either winning/losing
@@ -52,7 +50,7 @@ class GuessingGame
       #if user array !=initial word array print you suck
 
   def win_or_lose
-    if (@guess_count <= @total_guesses_allowed) && (@guess_array == @initial_word)
+    if @guess_array == @initial_word_array
       puts "congratulations for winning this round"
     else
       puts "you are the weakest link, goodbye!"
@@ -60,7 +58,7 @@ class GuessingGame
   end
 
   def about
-    puts "the initial word entered was #{@initial_word}"
+    puts "the initial word entered was --> #{@initial_word}"
     puts "the total guesses allowed was #{@total_guesses_allowed}"
     puts "the guess count is currently #{@guess_count}"
     puts "here are the letters you have guessed correctly #{@guess_array}"
