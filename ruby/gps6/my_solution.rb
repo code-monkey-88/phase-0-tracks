@@ -29,19 +29,20 @@ class VirusPredictor
   #this method calculates the number of deaths and rounds down to a whole number.
   def predicted_deaths
     # predicted deaths is solely based on population density
+    # is the floor really necessary? shifted it to print statement
     if @population_density >= 200
-      number_of_deaths = (@population * 0.4).floor
+      number_of_deaths = @population * 0.4
     elsif @population_density >= 150
-      number_of_deaths = (@population * 0.3).floor
+      number_of_deaths = @population * 0.3
     elsif @population_density >= 100
-      number_of_deaths = (@population * 0.2).floor
+      number_of_deaths = @population * 0.2
     elsif @population_density >= 50
-      number_of_deaths = (@population * 0.1).floor
+      number_of_deaths = @population * 0.1
     else
-      number_of_deaths = (@population * 0.05).floor
+      number_of_deaths = @population * 0.05
     end
 
-    print "#{@state} will lose #{number_of_deaths} people in this outbreak"
+    p "#{@state} will lose #{number_of_deaths.floor} people in this outbreak"
 
   end
 
@@ -113,3 +114,19 @@ end
   #it is a method that can only be called in the context of the current object. A way to prevent side-effects in your code by limiting the scope
   # if you change location of private you can no longer call virus_effects uness you call it within another class method.
   # following error received: my_solution.rb:96:in `block in <main>': private method `virus_effects' called for #<VirusPredictor:0x007f94fb86f938> (NoMethodError)
+
+# Release 8:
+  # What are the differences between the two different hash syntaxes shown in the state_data file?
+    # their are hash rockets and symbols, both do the same thing but symbols are more efficient for data storage.
+
+  # What does require_relative do? How is it different from require?
+    #answer in release 1 above.
+
+  # What are some ways to iterate through a hash?
+    #using .each .map! or using a manuel index counter loop
+
+  # When refactoring virus_effects, what stood out to you about the variables, if anything?
+    #the instance variables were redundant since their scope can be accessed directly from outside this method thus no arguments were required.
+
+  # What concept did you most solidify in this challenge?
+    #scope and DRY code
