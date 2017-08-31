@@ -64,7 +64,9 @@ class VirusPredictor
       speed += 2.5
     end
 
+
     puts " the virus will spread across the state in #{speed} months.\n\n"
+
 
   end
 
@@ -92,6 +94,7 @@ end
   # belongs outside of the class due to the scope of the class accepting arguments to store in instance variables.
 
   STATE_DATA.each do |state, population_values|
+
     us_state = VirusPredictor.new(state, population_values[:population_density], population_values[:population])
     us_state.virus_effects
   end
@@ -102,12 +105,14 @@ end
 # Reflection Section
 
 # Release 1:
+
   #using require is usually to import pre-existing code that has been previously installed.
   #require_relative on the other hand is for loading data/files within your project code. Similar to linking sheets in excel.
 
 # Release 2:
   #this is a hash stored within a hash
   #syntax used are both equal "hash-rocket" & "symbol" (=> & :). Difference is symbols are more efficient.
+
   #Kind of variable is constant variable (STATE DATA), local variable (name = Youssef), instance variable (in classes). Scope is global.
 
 # Release 6:
