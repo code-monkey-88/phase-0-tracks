@@ -64,7 +64,9 @@ class VirusPredictor
       speed += 2.5
     end
 
-    puts " and will spread across the state in #{speed} months.\n\n"
+
+    puts " the virus will spread across the state in #{speed} months.\n\n"
+
 
   end
 
@@ -92,23 +94,26 @@ end
   # belongs outside of the class due to the scope of the class accepting arguments to store in instance variables.
 
   STATE_DATA.each do |state, population_values|
-    state = VirusPredictor.new(state, STATE_DATA[state][:population_density], STATE_DATA[state][:population])
-    state.virus_effects
+
+    us_state = VirusPredictor.new(state, population_values[:population_density], population_values[:population])
+    us_state.virus_effects
   end
 
-
+#do not name variables with the same names
 
 #=======================================================================
 # Reflection Section
 
 # Release 1:
-  #using require is usually to access functionality that has been previously installed.
+
+  #using require is usually to import pre-existing code that has been previously installed.
   #require_relative on the other hand is for loading data/files within your project code. Similar to linking sheets in excel.
 
 # Release 2:
   #this is a hash stored within a hash
   #syntax used are both equal "hash-rocket" & "symbol" (=> & :). Difference is symbols are more efficient.
-  #Kind of variable is hash,string,symbol and scope is global.
+
+  #Kind of variable is constant variable (STATE DATA), local variable (name = Youssef), instance variable (in classes). Scope is global.
 
 # Release 6:
   #it is a method that can only be called in the context of the current object. A way to prevent side-effects in your code by limiting the scope

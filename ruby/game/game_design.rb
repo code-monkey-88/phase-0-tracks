@@ -3,8 +3,8 @@
 
 class GuessingGame
   # add attribute that allows program to read initial_word
-  # add attribute that allows program to read/write guess_count
-  attr_accessor :guess_count, :guess_array, :total_guesses_allowed, :initial_word, :letter_array
+  # add attribute that allows program to read guess_count
+  attr_reader :guess_count, :guess_array, :total_guesses_allowed, :initial_word, :letter_array
 
   # Method to initialize class
   # input: initial word
@@ -16,8 +16,8 @@ class GuessingGame
 
   def initialize(first_word, hint)
     @initial_word = first_word
-    @total_guesses_allowed = first_word.length
     @initial_word_array = first_word.split('')
+    @total_guesses_allowed = first_word.length
     @guess_count = 0
     @guess_array = []
     puts "lets start the word guessing game, your first hint can be found below:"
@@ -32,14 +32,17 @@ class GuessingGame
       #letter will be printed in a new array where a match is found
 
   def check_letter(letter)
-    @guess_count += 1
-    @initial_word_array.each do |l|
-        if l == letter
+      #conditional logic to handle repetitions without incrementing counter
+      @guess_count += 1
+      @initial_word_array.each do |l|
+
+        if letter == l
           @guess_array << letter
           puts "you have guessed a correct letter. see below"
           puts "#{@guess_array}"
         end
       end
+
       return @guess_array
     end
 
@@ -56,6 +59,8 @@ class GuessingGame
       puts "you are the weakest link, goodbye!"
     end
   end
+
+  #debugging method to print instance variables
 
   def about
     puts "the initial word entered was --> #{@initial_word}"
