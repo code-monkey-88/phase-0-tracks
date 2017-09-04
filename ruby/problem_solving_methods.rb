@@ -1,45 +1,11 @@
-# def search_array(arr, value)
-#     here = false
-#     count = 0
-#     while count < arr.length
-#         if arr[count] == value
-#             here = true
-#             puts count
-#         end
-#         count += 1
-#     end
-#     if here == false
-#         puts "nil"
-#     end
-# end
-#
-#
-# arr = [10, 11, 12, 13]
-# search_array(arr, 9)
-#
-# #add two values together using their index
-# #find a way to increment the index
-#
-#
-# def fib(count)
-#   array = [0,1,1]
-#     until array.length == count
-#         result = array [-1] + array[-2]
-#         p array << result
-#     end
-# end
-#
-# fib (6)
-
-
 def search_array(arr, value)
     arr.each do |i|
         if i == value
-            puts "#{value} is present within array"
-        else
-            value = "#{value} is not present within array"
+            p value
+        elsif
+            i != value
+            p nil
         end
-        return value
     end
 end
 
@@ -47,36 +13,15 @@ arr = [10, 11, 12, 13]
 search_array(arr, 9)
 search_array(arr, 10)
 
+# #add two values together using their index
+# #find a way to increment the index
 
-    # while loop. iterate though all values
-    #loop through each value
-    #check if that value is equal to the argument
-    #if yes return the index value
-    #if no, go to next value.
-    #if all the values are not equal, print nil
-
-
-#do this a number of times we ask for:
-#start with 0, 1
-#look at the last 2 values, [-1], [-2]
-#add the sum of those 2 values to an array .push <<
-#store that value
-#look at the last 2 again, and repeat until it is the count value
-#return the total sum
-
-=begin
-
-def fib(number_of_fib_numbers)
-    fib_array = [0,1]
-    count = 2
-
-    while count < number_of_fib_numbers
-        fib_next = fib_array[-1] + fib_array[-2]
-        fib_array << fib_next
-        count += 1
+def fib(count)
+  array = [0,1]
+    until array.length == count
+        result = array [-1] + array[-2]
+        p array << result
     end
-    puts fib_array
-
 end
 
-fib(100)
+fib (6)

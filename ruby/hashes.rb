@@ -9,11 +9,9 @@ puts  "Please enter your name:"
 
 #convert input into appropriate data types
 puts  "Please enter your age:"
-      name[:age]=gets.chomp
-      name[:age]=name[:age].to_i
+      name[:age]=gets.chomp.to_i
 puts  "How many children do you have?"
-      name[:children]=gets.chomp
-      name[:children]=name[:children].to_i
+      name[:children]=gets.chomp.to_i
 puts  "Please enter your decor_theme"
       name[:decor_theme]=gets.chomp
 puts  "Do you have any pets (true/false)?"
@@ -31,10 +29,10 @@ puts "would you like to update any of your personal information? (age,children,d
       key=gets.chomp
 
       if key=="none"
-      else key=key.to_sym
+      else new_key=key.to_sym
         puts "enter new value:"
         new_value=gets.chomp
-        name[key]=new_value
+        name[new_key]=new_value
       end
 p name
 #give user one opportunity to edit their input - conditional logic or use .replace method

@@ -1,6 +1,6 @@
 class Santa
-  attr_reader :gender
-  attr_accessor :age, :ethnicity
+  attr_reader :age, :ethnicity
+  attr_accessor :gender
 
   def initialize(gender, ethnicity)
     puts "Initializing Santa instance ..."
@@ -50,14 +50,10 @@ class Santa
 
   # #setter-methods
   #
-  # def age=(new_age)
-  #   @age = new_age
+  # def gender=(new_gender)
+  #   @gender = new_gender
   # end
   #
-  # def ethnicity=(new_ethnicity)
-  #   @ethnicity = new_ethnicity
-  # end
-
 end
 
 # first_santa = Santa.new
@@ -69,15 +65,15 @@ end
 # santas << Santa.new("female", "white")
 # santas << Santa.new("male", "black")
 
-
-birthday_boy = Santa.new("bigender", "asian")
-birthday_boy.celebrate_birthday
-birthday_boy.get_mad_at("Vixen")
-
-birthday_boy.about
-birthday_boy.age = 5
-birthday_boy.ethnicity = "blasian"
-birthday_boy.about
+#
+# birthday_boy = Santa.new("bigender", "asian")
+# birthday_boy.celebrate_birthday
+# birthday_boy.get_mad_at("Vixen")
+#
+# birthday_boy.about
+# birthday_boy.age = 5
+# birthday_boy.ethnicity = "blasian"
+# birthday_boy.about
 
 #release 4
 santas = []

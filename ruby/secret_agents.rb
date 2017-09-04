@@ -9,10 +9,14 @@ user_input=gets.chomp
   if user_input=="decrypt"
     puts "what would you like to decrypt?"
     decrypt_input=gets.chomp
+    decrypt("#{decrypt_input}")
   elsif user_input=="encrypt"
     puts "what would you like to encrypt?"
     encrypt_input=gets.chomp
+    encrypt("#{encrypt_input}")
   end
+
+
 
 #encrypt alogorithm:
 #build a counter
@@ -22,19 +26,21 @@ user_input=gets.chomp
 
 def encrypt(string)
   index=0
-    while index < string.length
+  encrypt_value=""
+  while index < string.length
       letter=string[index].next
-        if letter=="aa"
-          p "a"
-        else
-          p letter
-        end
-      index +=1
-    end
+      if letter=="aa"
+        encrypt_value << "a"
+      else
+        encrypt_value << letter
+      end
+  index +=1
   end
+  encrypt_value
+end
 #encrypt("abc")
 #encrypt("zed")
-encrypt("#{encrypt_input}")
+
 
 #decrypt algorithm:
 #build a counter
@@ -44,13 +50,16 @@ encrypt("#{encrypt_input}")
 
 def decrypt(string)
   index=0
+  decrypt_value = ""
     while index < string.length
       letter_position=("abcdefghijklmnopqrstuvwxyz".index(string[index]))-1
-      p "abcdefghijklmnopqrstuvwxyz"[letter_position]
+      decrypt_value << "abcdefghijklmnopqrstuvwxyz"[letter_position]
       index +=1
     end
-  end
+    decrypt_value
+end
 #decrypt("bcd")
 #decrypt("afe")
 #decrypt(encrypt("swordfish"))# --> create new variable to store result
-decrypt("#{decrypt_input}")
+
+decrypt(encrypt("swordfish"))

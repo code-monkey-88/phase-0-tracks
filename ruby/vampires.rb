@@ -1,7 +1,6 @@
 puts "welcome to the new hire registration portal"
 puts "how many employees will be processed?"
-  employee_number=gets.chomp
-  employee_number=employee_number.to_i
+  employee_number=gets.chomp.to_i
 
 
 employee_number.times do
@@ -11,12 +10,10 @@ employee_number.times do
       name=name.split(/ |\_|\-/).map(&:capitalize).join(" ")
 
     puts "How old are you?"
-      age=gets.chomp
-      age=age.to_i
+      age=gets.chomp.to_i
 
     puts "What year were you born?"
-      dob=gets.chomp
-      dob=dob.to_i
+      dob=gets.chomp.to_i
       dob=2017-dob
 
     puts "Our company cafeteria serves garlic bread. Should we order some for you? (y/n)"

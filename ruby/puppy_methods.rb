@@ -20,6 +20,7 @@ class Puppy
 
   def dog_years(integer)
     dog_age = 7 * integer
+    puts "you dog is #{dog_age} dog years"
     dog_age
   end
 
@@ -43,7 +44,7 @@ bubbles = Puppy.new
 class Gymnast
 
   def initialize
-    puts "Initializing new puppy instance ..."
+    puts "Initializing new gymnast instance ..."
   end
 
   def flip(integer)
