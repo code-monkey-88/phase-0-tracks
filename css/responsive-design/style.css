@@ -5,15 +5,26 @@ blockquote {
 }
 
 body {
-  max-width: 960px;
-  min-width: 200px
+  width: 960px;
 }
 
 #external-links {
 width: 20%;
 display: inline-block;
-vertical-align: top;
+vertical-align: text-top;
 }
+
+main {
+  width: 956px;
+  display: inline-block;
+  vertical-align: text-top;
+  padding-right: 5%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 5%;
+  min-width:30%
+}
+
 
 @media screen and (max-width: 500px) {
   body {
@@ -28,20 +39,14 @@ vertical-align: top;
     @media screen and (max-width: 500px) {
       p {font-size: 125%}
       }
+
+
+#page-wrap {
+  width: 900px
+  margin: 0 auto;
 }
 
-main {
-  width: 80%;
-  display: inline-block;
-  vertical-align: middle;
-  padding-right: 5%;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  padding-left: 5%;
-  min-width:30%
 }
-
-
 cite {
   display: block;
   margin-top: 10px;
