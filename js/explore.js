@@ -6,7 +6,7 @@
 
 function reverse(word) {
   var index = 0;
-  for (var i = word.length; i >= index; i--) {
+  for (var i = word.length-1; i >= index; i--) {
      console.log(word[i]);
   }
   return console.log(word[i]);
