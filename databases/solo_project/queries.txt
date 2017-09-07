@@ -1,0 +1,72 @@
+1. Display the information in one table (either table is fine).
+
+input: SELECT * FROM campaigns;
+output:
+1|Christmas|true|3
+2|Summer Jam|False|3
+3|Easter Thing|True|1
+4|Spring Thing|True|2
+5|World Cup|true|2
+
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+
+input: UPDATE campaigns SET launched = "true" WHERE name="World Cup"
+output: 5|World Cup|True|2|2|Coca Cola
+
+
+3. Display the information in both tables using one query.
+
+input: SELECT * FROM campaigns, brands WHERE campaigns.brand_id = brands.id;
+output:
+1|Christmas|true|3|3|Pepsi
+2|Summer Jam|False|3|3|Pepsi
+3|Easter Thing|True|1|1|Sephora
+4|Spring Thing|True|2|2|Coca Cola
+5|World Cup|True|2|2|Coca Cola
+
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+input: SELECT campaigns.name, campaigns.launched, brands.name FROM campaigns JOIN brands ON campaigns.brand_id = brands.id;
+output:
+Christmas|true|Pepsi
+Summer Jam|False|Pepsi
+Easter Thing|True|Sephora
+Spring Thing|True|Coca Cola
+World Cup|true|Coca Cola
+
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+input: DELETE FROM campaigns WHERE brand_id = 1;
+output:
+1|Christmas|true|3
+2|Summer Jam|False|3
+4|Spring Thing|True|2
+5|World Cup|true|2
+
+RELEASE 3 - Joining
+
+1. FULL-OUTER JOIN
+input: SELECT players.name, teams.name FROM players FULL JOIN teams ON players.team_id = teams.id;
+output: RIGHT and FULL OUTER JOINs are not currently supported
+
+
+2. LEFT JOIN
+input: SELECT campaigns.name, campaigns.launched, brands.name FROM campaigns LEFT JOIN brands ON campaigns.brand_id = brands.id;
+output:
+Christmas|true|Pepsi
+Summer Jam|False|Pepsi
+Spring Thing|True|Coca Cola
+World Cup|true|Coca Cola
+back to school|true|
+black friday|false|
+
+
+3. INNER JOIN
+input: SELECT campaigns.name, campaigns.launched, brands.name FROM campaigns INNER JOIN brands ON campaigns.brand_id = brands.id;
+outut:
+Christmas|true|Pepsi
+Summer Jam|False|Pepsi
+Spring Thing|True|Coca Cola
+World Cup|true|Coca Cola
