@@ -1,0 +1,17 @@
+You've joined two tables before. How do you join three?
+SELECT items were joining together, use the join-table with both foreign keys as a common denominator between the two joins.
+
+There are some repetitive columns if we choose to view all fields. Choose instead to just view the user's names, the business name, the star rating, and the comment.
+input: SELECT users.Firstname, users.Lastname, businesses.name, reviews.comment FROM users JOIN reviews ON users.id = reviews.user_id JOIN businesses ON businesses.id = reviews.business_id;
+output:
+Mandy|Kaling|Grundy Hollow Wedding Chapel|mint
+Bradford|Pitt|Lotus Yoga|alright
+Angela|Jolie|Grundy Hollow Wedding Chapel|sucks
+Steven|Wonder|Sushi World|basic
+Mandy|Kaling|Lotus Yoga|not bad
+Holly|Berry|Amir Towing|whatevs
+
+How do you view the data of all three tables for just one particular business?
+
+input: SELECT users.Firstname, users.Lastname, businesses.name, reviews.comment FROM users JOIN reviews ON users.id = reviews.user_id JOIN businesses ON businesses.id = reviews.business_id WHERE businesses.name = "Sushi World";
+output: Steven|Wonder|Sushi World|basic
